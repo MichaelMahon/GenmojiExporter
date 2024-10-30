@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
+import TipKit
 
 @main
 struct GenmojiExporterApp: App {
+    
+    init() {
+        try? Tips.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [
+                    Genmoji.self,
+                ])
         }
     }
 }
